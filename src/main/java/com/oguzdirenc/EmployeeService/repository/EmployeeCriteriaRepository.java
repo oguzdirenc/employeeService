@@ -3,6 +3,7 @@ package com.oguzdirenc.EmployeeService.repository;
 import com.oguzdirenc.EmployeeService.model.Employee;
 import com.oguzdirenc.EmployeeService.model.EmployeePage;
 import com.oguzdirenc.EmployeeService.model.EmployeeSearchCriteria;
+import com.oguzdirenc.EmployeeService.model.Employee_;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Repository;
 
@@ -76,14 +77,14 @@ public class EmployeeCriteriaRepository {
         if(Objects.nonNull(employeeSearchCriteria.getFirstName())){
             predicates.add(
                     criteriaBuilder.like(
-                            employeeRoot.get("firstName"),
+                            employeeRoot.get(Employee_.firstName),
                             "%" + employeeSearchCriteria.getFirstName() + "%"));
         }
 
         if(Objects.nonNull(employeeSearchCriteria.getLastName())){
             predicates.add(
                     criteriaBuilder.like(
-                            employeeRoot.get("lastName"),
+                            employeeRoot.get(Employee_.lastName),
                             "%" + employeeSearchCriteria.getLastName() + "%"));
         }
 
